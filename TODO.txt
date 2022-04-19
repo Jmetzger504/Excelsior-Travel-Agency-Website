@@ -2,13 +2,13 @@ Figure out how we are gonna implement services :(
 
 Home Page:
     Do we actually need this?
-
+    GET A LOGO
+    
 Login Page:
     Get via form:
         Username
         Password
-    Authenticate
-
+    Authenticate via Guard
 
 Register Page:
     Get via form: **Input Validation
@@ -35,15 +35,16 @@ Packages Page:
         Check Balance
         Confirm (save to DB)
     
-
 My Account Page:
     IF LOGGED IN:
         Can view and edit customer details
             1.Email?
             2.Password (ask for old password to confirm?)
         Can view and edit purchased tickets
-
+    Else:
+        Don't even let them click it?
 
 About Us Page:
     Pictures of us I guess
-    Text description. Can make it look fancy if feasible.
+    Text description
+     Can make it look fancy if feasible
