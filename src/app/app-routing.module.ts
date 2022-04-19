@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { PackagesComponent } from './packages/packages.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'home',component: HomeComponent},
   {path: '', component: HomeComponent},
   {path: 'aboutus',component: AboutusComponent},
+  {path: 'packages',component: PackagesComponent},
   {path: '**', component: NotfoundComponent}
 ];
 
