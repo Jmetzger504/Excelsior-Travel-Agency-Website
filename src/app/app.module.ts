@@ -63,6 +63,8 @@ import {MatTreeModule} from '@angular/material/tree';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatDividerModule,
     MatIconModule,
     MatMenuModule,
   ],

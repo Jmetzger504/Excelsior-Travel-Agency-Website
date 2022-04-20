@@ -1,19 +1,16 @@
-<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-  <mat-icon>more_vert</mat-icon>
-</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>
-    <mat-icon>dialpad</mat-icon>
-    <span>Redial</span>
-  </button>
-  <button mat-menu-item disabled>
-    <mat-icon>voicemail</mat-icon>
-    <span>Check voice mail</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>notifications_off</mat-icon>
-    <span>Disable alerts</span>
-  </button>
-</mat-menu>
+<header style = "background-color: rgb(221, 221, 221);">
+<a routerLink = ""><img src="../assets/images/excelsiorlogo2white.gif" alt="Excelsior Logo" style = "height: 10em;"></a>
+<div class = "button-row">
+  <button routerLink="" mat-raised-button color = "primary">Home</button>
+  <button routerLink="aboutus" mat-raised-button color = "primary">About Us</button>
+  <button routerLink = "packages" mat-raised-button color = "primary">Packages</button>
+  <button routerLink = "login" mat-raised-button color = "primary">Login</button>
+  <button routerLink = "myaccount" mat-raised-button color = "primary">My Account</button>
+  <button routerLink = "register" mat-raised-button color = "primary">Register</button>
+</div>
+
+</header>
+
+<mat-divider></mat-divider>
 
 <router-outlet></router-outlet>
