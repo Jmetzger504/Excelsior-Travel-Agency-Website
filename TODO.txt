@@ -1,9 +1,9 @@
-Figure out how we are gonna implement services :(
+Figure out how exactly we are gonna implement services :(
+Connect EF to Angular
 
 Home Page:
-    Do we actually need this?
     GET A LOGO
-    
+
 Login Page:
     Get via form:
         Username
@@ -19,7 +19,7 @@ Register Page:
         Address Details
         Email
         Password
-    Save to DB.
+    Push via EF
 
 Packages Page:
     Display all Packages
