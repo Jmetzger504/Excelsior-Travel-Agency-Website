@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators,ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -7,8 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  hide:boolean;
+  email = new FormControl('', [Validators.required, Validators.email]);
+  constructor() {
+    this.hide = true;
+   }
 
+   
+
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.email.hasError('email') ? 'Not a valid email' : '';
+  }
+  
   ngOnInit(): void {
   }
 
