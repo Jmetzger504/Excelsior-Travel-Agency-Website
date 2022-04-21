@@ -7,3 +7,7 @@
   button, mat-form-field {
     width: 20em;
   }
+
+  .balance {
+    text-align: right;
+  }

@@ -1,17 +1,29 @@
 <h1>Register for an Account!</h1>
+
+<mat-form-field appearance="fill">
+    <input matInput placeholder = "First Name" [formControl] = "firstName">
+    <mat-error *ngIf="firstName.invalid">{{getFirstNameErrorMessage()}}</mat-error>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+    <input matInput placeholder = "Last Name" [formControl] = "lastName">
+    <mat-error *ngIf="lastName.invalid">{{getLastNameErrorMessage()}}</mat-error>
+</mat-form-field>
+
 <mat-form-field appearance="fill">
     <mat-label>Email</mat-label>
-    <input matInput placeholder="pat@example.com" [formControl]="email" required>
-    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    <input matInput placeholder="pat@example.com" [formControl]="email">
+    <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
 </mat-form-field>
 
 <mat-form-field appearance="fill">
     <mat-label>Password</mat-label>
     <input matInput [type]="hide ? 'password' : 'text'" [formControl] = "password">
+    <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
-    <mat-hint>Must be at least 8 characters, contain at least one uppercase letter and at least one special characer </mat-hint>
+    <mat-hint>Must be at least 8 characters, contain at least one uppercase letter and at least one special character.</mat-hint>
 </mat-form-field>
 <br>
 <mat-form-field appearance="fill">
@@ -74,5 +86,17 @@
       <mat-option value="Wyoming">Wyoming</mat-option>
     </mat-select>
 </mat-form-field>
+
+<mat-form-field appearance = "fill">
+    <input matInput type = "number" placeholder="Zip Code" [formControl] = "zipCode">
+    <mat-error *ngIf="zipCode.invalid">{{getZipCodeErrorMessage()}}</mat-error>
+</mat-form-field>
+
+<mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Initial Balance</mat-label>
+    <input min = 0 matInput type="number" class="balance" placeholder="0">
+    <span matPrefix>$ (USD)&nbsp;</span>
+    <span matSuffix>.00</span>
+  </mat-form-field>
 
 <button mat-raised-button color = "primary">Register</button>
