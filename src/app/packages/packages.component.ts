@@ -9,6 +9,8 @@ export class PackagesComponent implements OnInit {
 
   constructor() { }
 
+  packages:any = [{}]
+
   ngOnInit(): void {
   }
 

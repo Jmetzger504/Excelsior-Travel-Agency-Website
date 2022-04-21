@@ -27,14 +27,14 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Excelsior Travel Agency</span>
+      <a routerLink="home"><span>Excelsior Travel Agency</span></a>
       <div [ngClass] = "{hidden: (isHandset$ | async)!}">
-      <a mat-list-item routerLink="home">Home</a>
-      <a mat-list-item routerLink="aboutus">About Us</a>
-      <a mat-list-item routerLink="packages">Packages</a>
-      <a mat-list-item routerLink="login">Login</a>
-      <a mat-list-item routerLink="myaccount">My Account</a>
-      <a mat-list-item routerLink="register">Sign Up!</a>
+      <a routerLink="home"><mat-icon>home</mat-icon>Home</a>
+      <a routerLink="aboutus">About Us</a>
+      <a routerLink="packages">Packages</a>
+      <a routerLink="login">Login</a>
+      <a routerLink="myaccount"><mat-icon>settings</mat-icon>My Account</a>
+      <a routerLink="register">Sign Up!</a>
     </div>
     </mat-toolbar>
     <ng-content></ng-content>
