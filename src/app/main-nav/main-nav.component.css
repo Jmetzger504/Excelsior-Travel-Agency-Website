@@ -20,3 +20,10 @@
   display: none;
   fixedInViewPort: false;
 }
+
+mat-toolbar a {
+  display: inline-block;
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+}
