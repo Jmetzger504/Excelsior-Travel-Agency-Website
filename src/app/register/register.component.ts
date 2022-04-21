@@ -14,6 +14,9 @@ export class RegisterComponent implements OnInit {
     this.hide = true;
    }
 
+   password = new FormControl('',Validators.compose([
+     Validators.required,
+     Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$")]));
    
 
   getErrorMessage() {

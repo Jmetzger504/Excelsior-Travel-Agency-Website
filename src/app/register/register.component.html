@@ -7,12 +7,13 @@
 
 <mat-form-field appearance="fill">
     <mat-label>Password</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'">
+    <input matInput [type]="hide ? 'password' : 'text'" [formControl] = "password">
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
+    <mat-hint>Must be at least 8 characters, contain at least one uppercase letter and at least one special characer </mat-hint>
 </mat-form-field>
-
+<br>
 <mat-form-field appearance="fill">
     <mat-label>Street Address</mat-label>
     <input matInput>
@@ -74,3 +75,4 @@
     </mat-select>
 </mat-form-field>
 
+<button mat-raised-button color = "primary">Register</button>
