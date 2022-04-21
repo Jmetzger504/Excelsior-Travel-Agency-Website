@@ -1,16 +1,4 @@
-<header style = "background-color: rgb(221, 221, 221);">
-<a routerLink = ""><img src="../assets/images/excelsiorlogo2white.gif" alt="Excelsior Logo" style = "height: 10em;"></a>
-<div class = "button-row">
-  <button routerLink="" mat-raised-button color = "primary">Home</button>
-  <button routerLink="aboutus" mat-raised-button color = "primary">About Us</button>
-  <button routerLink = "packages" mat-raised-button color = "primary">Packages</button>
-  <button routerLink = "login" mat-raised-button color = "primary">Login</button>
-  <button routerLink = "myaccount" mat-raised-button color = "primary">My Account</button>
-  <button routerLink = "register" mat-raised-button color = "primary">Register</button>
-</div>
+<app-main-nav>
+  <router-outlet></router-outlet>
+</app-main-nav>
 
-</header>
-
-<mat-divider></mat-divider>
-
-<router-outlet></router-outlet>
