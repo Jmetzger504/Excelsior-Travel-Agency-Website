@@ -9,5 +9,8 @@ namespace ExcelsiorAPI.Models.EF
         public int? Day { get; set; }
         public string? City { get; set; }
         public string? StateCountry { get; set; }
+        public string? PortTime { get; set; }
+
+        public virtual CruiseShip? Ship { get; set; }
     }
 }

@@ -6,6 +6,7 @@ namespace ExcelsiorAPI.Models.EF
     public partial class CruiseTicket
     {
         public int Id { get; set; }
+        public int? VoyageId { get; set; }
         public int? CustId { get; set; }
         public int? ShipId { get; set; }
         public int? Rooms { get; set; }
@@ -15,5 +16,6 @@ namespace ExcelsiorAPI.Models.EF
 
         public virtual Customer? Cust { get; set; }
         public virtual CruiseShip? Ship { get; set; }
+        public virtual Voyage? Voyage { get; set; }
     }
 }

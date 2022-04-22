@@ -6,13 +6,15 @@ import { LoginComponent } from './login/login.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { RegisterComponent } from './register/register.component';
-
+import { GlobalService } from './services/global.service';
+import { LogoutComponent } from './logout/logout.component';
 const routes: Routes = [
+  {path:'logout',component:LogoutComponent},
   {path: 'login',component: LoginComponent},
-  {path: 'myaccount',component: MyaccountComponent},
+  {path: 'myaccount',component: MyaccountComponent,canActivate:[GlobalService]},
   {path: 'register',component: RegisterComponent},
-  {path: 'home',component: HomeComponent},
-  {path: '', component: HomeComponent},
+  {path: 'home',component: HomeComponent, canActivate: [GlobalService]},
+  {path: '', component: LoginComponent},
   {path: 'aboutus',component: AboutusComponent},
   {path: '**', component: NotfoundComponent}
 ];

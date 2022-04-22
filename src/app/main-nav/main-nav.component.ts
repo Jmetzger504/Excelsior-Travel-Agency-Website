@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { GlobalService } from '../services/global.service';
 
 @Component({
   selector: 'app-main-nav',
@@ -16,6 +17,11 @@ export class MainNavComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+    service: GlobalService;
 
+  constructor(private breakpointObserver: BreakpointObserver,private serviceRef:GlobalService) {
+    this.service = serviceRef;
+  }
+
+   
 }

@@ -12,4 +12,13 @@ export class MyaccountComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  firstName? = "";
+   lastName? = "";
+   email? = "";
+   password? = "";
+   streetAddress? = "";
+   state? = "";
+   zipCode? = 0;
+   balance? = 0;
+
 }

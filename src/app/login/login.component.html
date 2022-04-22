@@ -15,5 +15,7 @@
     <mat-error *ngIf = "password?.invalid"></mat-error>
 </mat-form-field>
 <br>
-<button [disabled] = "loginForm.invalid" mat-raised-button color = "primary">Login</button>
+<button (click) = "login()" [disabled] = "loginForm.invalid" mat-raised-button color = "primary">Login</button>
 </form>
+<br>
+<h3>{{this.confirmation}}</h3>

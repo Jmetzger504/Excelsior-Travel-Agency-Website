@@ -37,11 +37,11 @@ namespace ExcelsiorAPI.Models.EF
             {
                 entity.ToTable("cruiseShip");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.AdultPrice)
                     .HasColumnType("money")
                     .HasColumnName("adultPrice");
+
+                entity.Property(e => e.AvailableRooms).HasColumnName("availableRooms");
 
                 entity.Property(e => e.ChildPrice)
                     .HasColumnType("money")
@@ -54,7 +54,8 @@ namespace ExcelsiorAPI.Models.EF
 
                 entity.Property(e => e.Destination)
                     .HasMaxLength(30)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("destination");
 
                 entity.Property(e => e.Img1)
                     .HasMaxLength(50)
@@ -79,34 +80,30 @@ namespace ExcelsiorAPI.Models.EF
                 entity.Property(e => e.PortCity)
                     .HasMaxLength(50)
                     .IsUnicode(false)
-                    .HasColumnName("Port City");
+                    .HasColumnName("portCity");
 
-                entity.Property(e => e.PortStateCountry)
+                entity.Property(e => e.PortState)
                     .HasMaxLength(50)
                     .IsUnicode(false)
-                    .HasColumnName("Port State, Country");
+                    .HasColumnName("portState");
 
                 entity.Property(e => e.RoomPrice)
                     .HasColumnType("money")
                     .HasColumnName("roomPrice");
-
-                entity.Property(e => e.RoomsAvailable).HasColumnName("Rooms Available");
 
                 entity.Property(e => e.ShipName)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("shipName");
 
-                entity.Property(e => e.TotalRooms).HasColumnName("Total Rooms");
+                entity.Property(e => e.TotalRooms).HasColumnName("totalRooms");
+
+                entity.Property(e => e.TripLength).HasColumnName("tripLength");
             });
 
             modelBuilder.Entity<CruiseTicket>(entity =>
             {
                 entity.ToTable("cruiseTicket");
-
-                entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
-                    .HasColumnName("ID");
 
                 entity.Property(e => e.AdultGuests).HasColumnName("adultGuests");
 
@@ -120,24 +117,27 @@ namespace ExcelsiorAPI.Models.EF
                     .HasColumnType("money")
                     .HasColumnName("totalCost");
 
+                entity.Property(e => e.VoyageId).HasColumnName("voyageId");
+
                 entity.HasOne(d => d.Cust)
                     .WithMany(p => p.CruiseTickets)
                     .HasForeignKey(d => d.CustId)
-                    .HasConstraintName("FK_Cruise Ticket.custID");
+                    .HasConstraintName("FK__cruiseTic__custI__1A9EF37A");
 
                 entity.HasOne(d => d.Ship)
                     .WithMany(p => p.CruiseTickets)
                     .HasForeignKey(d => d.ShipId)
-                    .HasConstraintName("FK_Cruise Ticket.shipID");
+                    .HasConstraintName("FK__cruiseTic__shipI__1B9317B3");
+
+                entity.HasOne(d => d.Voyage)
+                    .WithMany(p => p.CruiseTickets)
+                    .HasForeignKey(d => d.VoyageId)
+                    .HasConstraintName("FK__cruiseTic__voyag__19AACF41");
             });
 
             modelBuilder.Entity<Customer>(entity =>
             {
                 entity.ToTable("Customer");
-
-                entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
-                    .HasColumnName("ID");
 
                 entity.Property(e => e.Balance)
                     .HasColumnType("money")
@@ -189,22 +189,31 @@ namespace ExcelsiorAPI.Models.EF
 
                 entity.Property(e => e.City)
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("city");
 
                 entity.Property(e => e.Day).HasColumnName("day");
+
+                entity.Property(e => e.PortTime)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("portTime");
 
                 entity.Property(e => e.ShipId).HasColumnName("shipId");
 
                 entity.Property(e => e.StateCountry)
                     .HasMaxLength(50)
                     .IsUnicode(false)
-                    .HasColumnName("State, country");
+                    .HasColumnName("stateCountry");
+
+                entity.HasOne(d => d.Ship)
+                    .WithMany()
+                    .HasForeignKey(d => d.ShipId)
+                    .HasConstraintName("FK__Itinerary__shipI__1D7B6025");
             });
 
             modelBuilder.Entity<Voyage>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.Property(e => e.Arrival)
                     .HasColumnType("datetime")
                     .HasColumnName("arrival");
@@ -216,9 +225,9 @@ namespace ExcelsiorAPI.Models.EF
                 entity.Property(e => e.ShipId).HasColumnName("shipId");
 
                 entity.HasOne(d => d.Ship)
-                    .WithMany()
+                    .WithMany(p => p.Voyages)
                     .HasForeignKey(d => d.ShipId)
-                    .HasConstraintName("FK_Voyages.shipId");
+                    .HasConstraintName("FK__Voyages__shipId__13F1F5EB");
             });
 
             OnModelCreatingPartial(modelBuilder);
