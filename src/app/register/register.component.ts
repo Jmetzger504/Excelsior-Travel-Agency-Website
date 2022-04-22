@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators,ReactiveFormsModule,FormGroup,FormBuilder} from '@angular/forms';
-
+import { GlobalService } from '../services/global.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
     
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private service: GlobalService) {
     this.registerForm = this.fb.group({
       firstName: ['',[
         Validators.required,
@@ -50,9 +50,6 @@ export class RegisterComponent implements OnInit {
     this.registerForm.valueChanges.subscribe();
   }
 
-  register() {
-    //Give to service and httpPost() it.
-  }
 
   get firstName() {
     return this.registerForm.get('firstName');
@@ -86,5 +83,14 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get('balance');
   }
   
-  
+  register() {
+    this.service.register(this.registerForm.get('firstName')?.value,
+    this.registerForm.get('lastName')?.value,
+    this.registerForm.get("email")?.value,
+    this.registerForm.get('password')?.value,
+    this.registerForm.get("streetAddress")?.value,
+    this.registerForm.get("state")?.value,
+    this.registerForm.get("zipCode")?.value,
+    this.registerForm.get("balance")?.value);
+  }
 }
