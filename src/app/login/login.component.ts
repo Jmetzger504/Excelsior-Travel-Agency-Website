@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators,ReactiveFormsModule} from '@angular/forms';
+import {FormControl,Validators,ReactiveFormsModule, FormGroup,FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,23 +8,36 @@ import {FormControl, Validators,ReactiveFormsModule} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  hide:boolean;
-  email = new FormControl('', [Validators.required, Validators.email]);
-  constructor() {
-    this.hide = true;
-   }
-
-   
-
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
+  hide:boolean = true;
+  loginForm: FormGroup;
 
   ngOnInit(): void {
+  }
+
+  constructor(private fb: FormBuilder) {
+    this.loginForm = this.fb.group({
+      email: ['',[
+        Validators.required,
+        Validators.email
+      ]],
+      password: ['',[
+        Validators.required,
+        Validators.minLength(8),
+        Validators.pattern("^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$")
+      ]],
+    })
+   }
+
+  login() {
+
+  }
+
+  get email() {
+    return this.loginForm.get('email');
+  }
+
+  get password() {
+    return this.loginForm.get('password');
   }
 
 }

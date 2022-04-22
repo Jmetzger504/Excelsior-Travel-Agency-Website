@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm.valueChanges.subscribe();
   }
 
-  submit() {
+  register() {
     //Give to service and httpPost() it.
   }
 

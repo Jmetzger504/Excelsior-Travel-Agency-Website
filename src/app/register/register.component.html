@@ -102,5 +102,5 @@
     <mat-error *ngIf = "balance?.invalid">This field is required!</mat-error>
 </mat-form-field>
 <br>
-<button [disabled] = "registerForm.invalid" mat-raised-button color = "primary">Register</button>
+<button (click) = "register()" [disabled] = "registerForm.invalid" mat-raised-button color = "primary">Register</button>
 </form>
