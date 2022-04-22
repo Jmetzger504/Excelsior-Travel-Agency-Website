@@ -1,24 +1,31 @@
+drop table Itinerary;
+drop table cruiseTicket;
+drop table Voyages;
+drop table Customer;
+drop table cruiseShip;
+
 CREATE TABLE [cruiseShip] (
-  [Id] int,
-  [Rooms Available] int,
-  [Total Rooms] int,
-  [Port City] varchar(50),
-  [Port State, Country] varchar(50),
+  [Id] int identity(1,1) primary key,
+  [availableRooms] int,
+  [totalRooms] int,
+  [portCity] varchar(50),
+  [portState] varchar(50),
   [shipName] varchar(50),
   [cruiseLine] varchar(50),
-  [Destination] varchar(30),
+  [destination] varchar(30),
   [adultPrice] money,
   [childPrice] money,
   [roomPrice] money,
+  [tripLength] int,
   [img1] varchar(50),
   [img2] varchar(50),
   [img3] varchar(50),
   [img4] varchar(50),
-  PRIMARY KEY ([Id])
 );
 
 CREATE TABLE [Voyages] (
-  [shipId] int,
+  Id int identity(1,1) primary key,
+  [shipId] int foreign key references cruiseShip(Id),
   [departure] datetime,
   [arrival] datetime,
   CONSTRAINT [FK_Voyages.shipId]
@@ -27,7 +34,7 @@ CREATE TABLE [Voyages] (
 );
 
 CREATE TABLE [Customer] (
-  [ID] int,
+  [Id] int identity(1,1) primary key,
   [email] varchar(50),
   [password] varchar(50),
   [firstName] varchar(50),
@@ -37,34 +44,46 @@ CREATE TABLE [Customer] (
   [state] varchar(50),
   [zipCode] int,
   [balance] money,
-  PRIMARY KEY ([ID])
 );
 
 
 
 CREATE TABLE [cruiseTicket] (
-  [ID] int,
-  [custID] int,
-  [shipID] int,
+  [Id] int identity(1,1) primary key,
+  [voyageId] int foreign key references Voyages(Id),
+  [custID] int foreign key references Customer(Id),
+  [shipID] int foreign key references cruiseShip(Id),
   [Rooms] int,
   [childGuests] int,
   [adultGuests] int,
   [totalCost] money,
-  PRIMARY KEY ([ID]),
-  CONSTRAINT [FK_cruiseTicket.custID]
-    FOREIGN KEY ([custID])
-      REFERENCES [Customer]([ID]),
-  CONSTRAINT [FK_cruiseTicket.shipID]
-    FOREIGN KEY ([shipID])
-      REFERENCES [cruiseShip]([Id])
 );
 
 
 
 CREATE TABLE [Itinerary] (
-  [shipId] int,
+  [shipId] int foreign key references cruiseShip(Id),
   [day] int,
-  [City] varchar(50),
-  [State, country] varchar(50),
+  [city] varchar(50),
+  [stateCountry] varchar(50),
   [portTime] varchar(10)
 );
+
+
+insert into Customer(email,password,firstName,lastName,streetAddress,city,state,zipCode,balance) values ('julian@gmail.com','myPassword','Julian','Metzger','My house','New Orleans','Louisiana',70005,50000)
+
+insert into cruiseShip(availableRooms,totalRooms,portCity,portState,shipName,cruiseLine,destination,adultPrice,childPrice,roomPrice,tripLength,img1,img2,img3,img4) values (998,1000,'New Orleans','Louisiana, United States','Glory','Carnival','Caribbean',250,100,400,8,'src\assets\images\carnivalGlory1.jpg','src\assets\images\carnivalGlory2.jpg','src\assets\images\carnivalGlory3.jpg','src\assets\images\carnivalGlory4.jpg')
+
+insert into Voyages values (1,'20220430 10:00:00 AM','20220506 10:00:00 AM')
+insert into Voyages values (1,'20220508 10:00:00 AM','20220515 10:00:00 AM')
+
+insert into Itinerary values(1,1,'New Orleans','Louisiana, United States','10:00am')
+insert into Itinerary values(1,2,'At Sea','','')
+insert into Itinerary values(1,3,'Progreso','Mexico','8:00am')
+insert into Itinerary values(1,4,'At Sea','','')
+insert into Itinerary values(1,5,'Belize City','Belize','8:00am')
+insert into Itinerary values(1,6,'Cozumel','Mexico','7:00am')
+insert into Itinerary values(1,7,'At Sea','','')
+insert into Itinerary values(1,8,'New Orleans','Louisiana, United States','10:00am')
+
+insert into cruiseTicket(voyageId,custID,shipID,Rooms,childGuests,adultGuests,totalCost) values(1,1,1,2,3,2,1350)
