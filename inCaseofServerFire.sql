@@ -1,6 +1,4 @@
-
-
-CREATE TABLE cruiseShip (
+CREATE TABLE [cruiseShip] (
   [Id] int,
   [Rooms Available] int,
   [Total Rooms] int,
@@ -19,6 +17,15 @@ CREATE TABLE cruiseShip (
   PRIMARY KEY ([Id])
 );
 
+CREATE TABLE [Voyages] (
+  [shipId] int,
+  [departure] datetime,
+  [arrival] datetime,
+  CONSTRAINT [FK_Voyages.shipId]
+    FOREIGN KEY ([shipId])
+      REFERENCES [cruiseShip]([Id])
+);
+
 CREATE TABLE [Customer] (
   [ID] int,
   [email] varchar(50),
@@ -33,7 +40,9 @@ CREATE TABLE [Customer] (
   PRIMARY KEY ([ID])
 );
 
-CREATE TABLE cruiseTicket (
+
+
+CREATE TABLE [cruiseTicket] (
   [ID] int,
   [custID] int,
   [shipID] int,
@@ -42,27 +51,20 @@ CREATE TABLE cruiseTicket (
   [adultGuests] int,
   [totalCost] money,
   PRIMARY KEY ([ID]),
-  CONSTRAINT [FK_Cruise Ticket.shipID]
-    FOREIGN KEY ([shipID])
-      REFERENCES [cruiseShip]([Id]),
-  CONSTRAINT [FK_Cruise Ticket.custID]
+  CONSTRAINT [FK_cruiseTicket.custID]
     FOREIGN KEY ([custID])
-      REFERENCES [Customer]([ID])
+      REFERENCES [Customer]([ID]),
+  CONSTRAINT [FK_cruiseTicket.shipID]
+    FOREIGN KEY ([shipID])
+      REFERENCES [cruiseShip]([Id])
 );
 
-CREATE TABLE [Voyages] (
-  [shipId] int,
-  [departure] datetime,
-  [arrival] datetime,
-  CONSTRAINT [FK_Voyages.shipId]
-    FOREIGN KEY ([shipId])
-      REFERENCES cruiseShip([Id])
-);
+
 
 CREATE TABLE [Itinerary] (
   [shipId] int,
   [day] int,
   [City] varchar(50),
-  [State, country] varchar(50)
+  [State, country] varchar(50),
+  [portTime] varchar(10)
 );
-
