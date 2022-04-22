@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormControl, Validators,ReactiveFormsModule,FormGroup,FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -8,51 +8,83 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  hide:boolean;
- 
-  constructor() {
-    this.hide = true;
-   }
-
-  firstName = new FormControl('',Validators.compose([Validators.required,Validators.minLength(2)]));
-  lastName = new FormControl('',Validators.compose([Validators.required,Validators.minLength(2)]));
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('',Validators.compose([
-     Validators.required,
-     Validators.minLength(8)]));
-   
-  zipCode = new FormControl('',Validators.compose([Validators.required,Validators.min(501),Validators.max(99950),Validators.minLength(5)]))
-
-  getZipCodeErrorMessage() {
-    if(this.zipCode.hasError('required'))
-      return 'You must enter a zip code.'
-    return this.zipCode.hasError('min' || 'max' || 'minLength(5)') ? 'Please enter a valid zip code.' : '';
-  }
-
-  getEmailErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter an email';
-    }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
-
-  getPasswordErrorMessage() {
-    if(this.password.hasError('required')) {
-      return 'You must enter a password';
-    }
-    return 'Must be at least 8 characters.';
-  }
-
-  getFirstNameErrorMessage() {
-    return 'Please enter a valid name (2 characters or more).';
-  }
-  
-  getLastNameErrorMessage() {
-    return 'Please enter a valid name (2 characters or more).';
-  }
+  hide:boolean = true;
+  registerForm: FormGroup;
 
   ngOnInit(): void {
+    
   }
 
+  constructor(private fb: FormBuilder) {
+    this.registerForm = this.fb.group({
+      firstName: ['',[
+        Validators.required,
+        Validators.minLength(2)
+      ]],
+      lastName: ['',[
+        Validators.required,
+        Validators.minLength(2)
+      ]],
+      email: ['',[
+        Validators.required,
+        Validators.email
+      ]],
+      password: ['',[
+        Validators.required,
+        Validators.minLength(8),
+        Validators.pattern("^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$")
+      ]],
+      streetAddress: ['',[Validators.required]],
+      state: ['',[Validators.required]],
+      zipCode: ['',[
+        Validators.required,
+        Validators.minLength(5),
+      ]],
+      balance: ['',[
+        Validators.required,
+        Validators.min(0),
+        
+      ]],
+    });
+
+    this.registerForm.valueChanges.subscribe();
+  }
+
+  submit() {
+    //Give to service and httpPost() it.
+  }
+
+  get firstName() {
+    return this.registerForm.get('firstName');
+  }
+
+  get lastName() {
+    return this.registerForm.get('lastName');
+  }
+
+  get email() {
+    return this.registerForm.get('email');
+  }
+
+  get password() {
+    return this.registerForm.get('password');
+  }
+
+  get streetAddress() {
+    return this.registerForm.get('streetAddress');
+  }
+
+  get state() {
+    return this.registerForm.get('state');
+  }
+
+  get zipCode() {
+    return this.registerForm.get('zipCode');
+  }
+
+  get balance() {
+    return this.registerForm.get('balance');
+  }
+  
+  
 }

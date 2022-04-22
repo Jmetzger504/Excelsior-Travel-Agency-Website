@@ -1,39 +1,40 @@
 <h1>Register for an Account!</h1>
-
+<form [formGroup]= "registerForm">
 <mat-form-field appearance="fill">
-    <input matInput placeholder = "First Name" [formControl] = "firstName">
-    <mat-error *ngIf="firstName.invalid">{{getFirstNameErrorMessage()}}</mat-error>
-</mat-form-field>
-
-<mat-form-field appearance="fill">
-    <input matInput placeholder = "Last Name" [formControl] = "lastName">
-    <mat-error *ngIf="lastName.invalid">{{getLastNameErrorMessage()}}</mat-error>
-</mat-form-field>
-
-<mat-form-field appearance="fill">
-    <mat-label>Email</mat-label>
-    <input matInput placeholder="pat@example.com" [formControl]="email">
-    <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
-</mat-form-field>
-
-<mat-form-field appearance="fill">
-    <mat-label>Password</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'" [formControl] = "password">
-    <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
-    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-    </button>
-    <mat-hint>Must be at least 8 characters, contain at least one uppercase letter and at least one special character.</mat-hint>
+    <input matInput placeholder = "First Name" formControlName = "firstName">
+    <mat-error *ngIf = "firstName?.invalid">This field is required!</mat-error>
 </mat-form-field>
 <br>
 <mat-form-field appearance="fill">
-    <mat-label>Street Address</mat-label>
-    <input matInput>
+    <input matInput placeholder = "Last Name" formControlName = "lastName">
+    <mat-error *ngIf = "lastName?.invalid">This field is required!</mat-error>
 </mat-form-field>
-
+<br>
 <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email">
+    <mat-error *ngIf = "email?.invalid">Valid email required!</mat-error>
+</mat-form-field>
+<br>
+<mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" formControlName = "password">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-hint>Must be at least 8 characters and contain at least one letter and one number.</mat-hint>
+</mat-form-field>
+<br>
+<br>
+<mat-form-field appearance="fill">
+    <mat-label>Street Address</mat-label>
+    <input matInput formControlName = "streetAddress">
+    <mat-error *ngIf = "streetAddress?.invalid">This field is required!</mat-error>
+</mat-form-field>
+<br>
+<mat-form-field appearance="fill" >
     <mat-label>State</mat-label>
-    <mat-select>
+    <mat-select formControlName = "state">
       <mat-option value="Alabama">Alabama</mat-option>
       <mat-option value="Alaska">Alaska</mat-option>
       <mat-option value="Arizona">Arizona</mat-option>
@@ -85,18 +86,21 @@
       <mat-option value="Wisconsin">Wisconsin</mat-option>
       <mat-option value="Wyoming">Wyoming</mat-option>
     </mat-select>
+    <mat-error *ngIf = "state?.invalid">This field is required!</mat-error>
 </mat-form-field>
-
+<br>
 <mat-form-field appearance = "fill">
-    <input matInput type = "number" placeholder="Zip Code" [formControl] = "zipCode">
-    <mat-error *ngIf="zipCode.invalid">{{getZipCodeErrorMessage()}}</mat-error>
+    <input placeholder="Zip Code" matInput type = "number" formControlName = "zipCode">
+    <mat-error *ngIf = "zipCode?.invalid">This field is required!</mat-error>
 </mat-form-field>
-
+<br>
 <mat-form-field appearance="fill" floatLabel="always">
     <mat-label>Initial Balance</mat-label>
-    <input min = 0 matInput type="number" class="balance" placeholder="0">
+    <input min = 0 matInput type="number" class="balance" formControlName = "balance">
     <span matPrefix>$ (USD)&nbsp;</span>
     <span matSuffix>.00</span>
-  </mat-form-field>
-
-<button mat-raised-button color = "primary">Register</button>
+    <mat-error *ngIf = "balance?.invalid">This field is required!</mat-error>
+</mat-form-field>
+<br>
+<button [disabled] = "registerForm.invalid" mat-raised-button color = "primary">Register</button>
+</form>
