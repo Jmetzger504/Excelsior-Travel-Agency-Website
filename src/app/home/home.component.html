@@ -1,1 +1,18 @@
-<p>home works!</p>
+
+
+<div *ngFor = "let cruise of cruises">
+    <h2>{{cruise.cruiseLine}} {{cruise.shipName}}</h2>
+    <h3>Departing: {{cruise.From}}</h3>
+    <h3>Visiting: {{cruise.To}}</h3>
+    <h3>{{cruise.cruiseLine}} {{cruise.shipName}}</h3>
+    <h3>Length: {{cruise.dayLength}} days</h3>
+    <h3>Price per adult traveler: {{cruise.pricePerAdult | currency}}</h3>
+    <h3>Price per child traveler: {{cruise.pricePerChild | currency}}</h3>
+    <h3>Itinerary</h3>
+    <div *ngFor = "let dest of cruise.itinerary">
+        <h4>Day {{dest.day}}</h4>
+        <h4>{{dest.city}}</h4>
+        <h4 *ngIf = "dest.country !=''">{{dest.country}}</h4>
+        <h4 *ngIf = "dest.portTime != ''">{{dest.portTime}}</h4>
+    </div>
+</div>
