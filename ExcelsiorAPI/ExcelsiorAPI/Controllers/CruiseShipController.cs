@@ -12,7 +12,6 @@ namespace ExcelsiorAPI.Controllers
   public class CruiseShipController : ControllerBase
   {
     excelsiorDbContext dbContext = new excelsiorDbContext();
-    
       
     [HttpGet]
     [Route("getLocations")]
@@ -33,17 +32,9 @@ namespace ExcelsiorAPI.Controllers
     {
       try
       {
-        var cruises = (from e in dbContext.CruiseShips
-                       where e.Destination == location
-                       select e);
-
-        foreach(CruiseShip ship in cruises)
-        {
-          //var voyages = from e in dbContext.Voyages
-          //              where e.ShipId == ship.Id
-          //              select e;
-          //ship.VoyageList = voyages.ToList<Voyage>();
-        }
+        var cruises = dbContext.CruiseShips
+                               .Where(b => b.Destination == location)
+                               .Include(b => b.Voyages).FirstOrDefault();
 
         return Ok(cruises);
         

@@ -75,6 +75,7 @@ import { LogoutComponent } from './logout/logout.component';
     HttpClientModule,
     MatAutocompleteModule,
     MatButtonModule,
+    MatCardModule,
     MatDatepickerModule,
     MatDividerModule,
     MatFormFieldModule,

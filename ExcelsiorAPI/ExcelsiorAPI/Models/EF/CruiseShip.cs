@@ -30,7 +30,5 @@ namespace ExcelsiorAPI.Models.EF
 
         public virtual ICollection<CruiseTicket> CruiseTickets { get; set; }
         public virtual ICollection<Voyage> Voyages { get; set; }
-
-        public List<Voyage> VoyageList { get; set; } = new List<Voyage>();
   }
 }
