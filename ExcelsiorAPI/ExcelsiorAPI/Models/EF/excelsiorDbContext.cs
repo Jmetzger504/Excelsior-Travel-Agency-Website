@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -124,15 +124,15 @@ namespace ExcelsiorAPI.Models.EF
                     .HasForeignKey(d => d.CustId)
                     .HasConstraintName("FK__cruiseTic__custI__2334397B");
 
-                entity.HasOne(d => d.Ship)
-                    .WithMany(p => p.CruiseTickets)
-                    .HasForeignKey(d => d.ShipId)
-                    .HasConstraintName("FK__cruiseTic__shipI__24285DB4");
+              entity.HasOne(d => d.Ship)
+                  .WithMany(p => p.CruiseTickets)
+                  .HasForeignKey(d => d.ShipId)
+                  .HasConstraintName("FK__cruiseTic__shipI__24285DB4");
 
-                entity.HasOne(d => d.Voyage)
-                    .WithMany(p => p.CruiseTickets)
-                    .HasForeignKey(d => d.VoyageId)
-                    .HasConstraintName("FK__cruiseTic__voyag__22401542");
+              entity.HasOne(d => d.Voyage)
+                  .WithMany(p => p.CruiseTickets)
+                  .HasForeignKey(d => d.VoyageId)
+                  .HasConstraintName("FK__cruiseTic__voyag__22401542");
             });
 
             modelBuilder.Entity<Customer>(entity =>
@@ -226,10 +226,10 @@ namespace ExcelsiorAPI.Models.EF
 
                 entity.Property(e => e.ShipId).HasColumnName("shipId");
 
-                entity.HasOne(d => d.Ship)
-                    .WithMany(p => p.Voyages)
-                    .HasForeignKey(d => d.ShipId)
-                    .HasConstraintName("FK__Voyages__shipId__13F1F5EB");
+              entity.HasOne(d => d.Ship)
+                  .WithMany(p => p.Voyages)
+                  .HasForeignKey(d => d.ShipId)
+                  .HasConstraintName("FK__Voyages__shipId__13F1F5EB");
             });
 
             OnModelCreatingPartial(modelBuilder);

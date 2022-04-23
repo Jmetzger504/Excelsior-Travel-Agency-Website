@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ExcelsiorAPI.Models.EF
@@ -15,7 +15,7 @@ namespace ExcelsiorAPI.Models.EF
         public DateTime? Departure { get; set; }
         public DateTime? Arrival { get; set; }
 
-        public virtual CruiseShip? Ship { get; set; }
-        public virtual ICollection<CruiseTicket> CruiseTickets { get; set; }
-    }
+    public virtual CruiseShip? Ship { get; set; }
+    public virtual ICollection<CruiseTicket> CruiseTickets { get; set; }
+  }
 }
