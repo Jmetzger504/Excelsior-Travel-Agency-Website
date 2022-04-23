@@ -33,6 +33,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
+import { MatNativeDateModule } from '@angular/material/core';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatRadioModule} from '@angular/material/radio';
@@ -72,12 +73,15 @@ import { LogoutComponent } from './logout/logout.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatAutocompleteModule,
     MatButtonModule,
+    MatDatepickerModule,
     MatDividerModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     MatMenuModule,
+    MatNativeDateModule,
     MatOptionModule,
     MatSelectModule,
     LayoutModule,

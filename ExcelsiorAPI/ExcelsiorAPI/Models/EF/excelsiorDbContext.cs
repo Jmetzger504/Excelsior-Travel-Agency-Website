@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -118,6 +118,11 @@ namespace ExcelsiorAPI.Models.EF
                     .HasColumnName("totalCost");
 
                 entity.Property(e => e.VoyageId).HasColumnName("voyageId");
+
+                entity.HasOne(d => d.Cust)
+                    .WithMany(p => p.CruiseTickets)
+                    .HasForeignKey(d => d.CustId)
+                    .HasConstraintName("FK__cruiseTic__custI__2334397B");
 
                 entity.HasOne(d => d.Ship)
                     .WithMany(p => p.CruiseTickets)

@@ -8,6 +8,25 @@ export class GlobalService {
 
   _http:HttpClient;
   loggedIn:boolean;
+  destinations = [];
+
+  Customer: any  = {
+    id: 0,
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    streetAddress: "",
+    state: "",
+    zipCode: 0,
+    balance: 0};
+
+ cruiseTickets = [];
+ cruiseTicket = {id: 0, custId: 0, shipId: 0, rooms: 0,childGuests: 0,adultGuests: 0,
+  totalCost: 0}
+ cruises = [];
+ itineraries = [];
+
   connectionString: string = "https://localhost:44356/api/"
   constructor(private _httpRef:HttpClient) {
     this._http = _httpRef;
@@ -20,22 +39,9 @@ export class GlobalService {
     return false;
   }
 
-   Customer: any  = {
-      id: 0,
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      streetAddress: "",
-      state: "",
-      zipCode: 0,
-      balance: 0};
+  
 
-   cruiseTickets = [];
-   cruiseTicket = {id: 0, custId: 0, shipId: 0, rooms: 0,childGuests: 0,adultGuests: 0,
-    totalCost: 0}
-   cruises = [];
-   itineraries = [];
+   
    register(firstName:string,lastName:string,email:string,password:string,
     streetAddress:string, city:string,state:string,zipCode:number,
     balance:number) {
@@ -52,5 +58,12 @@ export class GlobalService {
      return this._http.get(this.connectionString + 'Customer/' + email + "/" + password);
    }
 
+  getLocations() {
+    return this._http.get(this.connectionString + 'CruiseShip/getLocations');
+  }
+
+  searchByLocation(location:string) {
+    return this._http.get(this.connectionString + 'CruiseShip/SearchByLocation' + location);
+  }
 
 }

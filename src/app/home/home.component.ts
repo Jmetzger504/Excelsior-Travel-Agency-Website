@@ -1,10 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from '../services/global.service';
+import {Validators,FormGroup,FormBuilder} from '@angular/forms';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  service:GlobalService;
+  locationForm:FormGroup;
+  dateForm:FormGroup;
+  locations: any;
 
   cruises:any = [{From: "New Orleans, Louisiana",
   To: "Cozumel, Mexico",
@@ -25,7 +33,30 @@ export class HomeComponent implements OnInit {
             ]
 }];
   
-  constructor() { }
+
+
+  constructor(serviceRef: GlobalService,private fb: FormBuilder) {
+    this.service = serviceRef;
+    this.locationForm = this.fb.group({
+      formLocations: ['',Validators.required]
+    })
+    this.service.getLocations().subscribe(data => {
+      this.locations = data;
+     });
+     this.dateForm = this.fb.group({
+       formDates: ['',Validators.required]
+     })
+     
+   }
+
+
+  get formLocations() {
+    return this.locationForm.get('formLocations');
+  }
+
+  searchByLocation() {
+  
+  }
 
   ngOnInit(): void {
   }

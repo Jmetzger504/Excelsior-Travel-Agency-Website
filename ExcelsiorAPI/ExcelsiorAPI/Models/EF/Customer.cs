@@ -1,11 +1,15 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace ExcelsiorAPI.Models.EF
 {
     public partial class Customer
     {
-    
+        public Customer()
+        {
+            CruiseTickets = new HashSet<CruiseTicket>();
+        }
+
         public int Id { get; set; }
         public string? Email { get; set; }
         public string? Password { get; set; }
@@ -17,5 +21,6 @@ namespace ExcelsiorAPI.Models.EF
         public int? ZipCode { get; set; }
         public decimal? Balance { get; set; }
 
+        public virtual ICollection<CruiseTicket> CruiseTickets { get; set; }
     }
 }
