@@ -19,8 +19,6 @@ export class LogoutComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("onInit");
-    this.service.loggedIn = false;
-    this.service.Customer = null;
   }
 
 }

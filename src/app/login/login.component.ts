@@ -14,13 +14,11 @@ export class LoginComponent implements OnInit {
   confirmation: string = "";
   router:Router;
   loginForm: FormGroup;
-
   ngOnInit(): void {
-    this.confirmation = "";
-    this.service.loggedIn = false;
   }
 
   constructor(private fb: FormBuilder, private service: GlobalService,private routerRef:Router) {
+
     this.router = routerRef;
     this.confirmation = "";
     this.service.loggedIn = false;

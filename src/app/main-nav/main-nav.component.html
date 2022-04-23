@@ -15,7 +15,7 @@
       <ng-template #logout>
         <a mat-list-item>Logout</a>
       </ng-template>
-      <a mat-list-item routerLink="myaccount">My Account</a>
+      <a mat-list-item *ngIf = "service.loggedIn" routerLink="myaccount">My Account</a>
       <a mat-list-item routerLink="register">Sign Up!</a>
     </mat-nav-list>
   </mat-sidenav>
@@ -31,14 +31,14 @@
       </button>
       <a routerLink="home"><span>Excelsior Travel Agency</span></a>
       <div [ngClass] = "{hidden: (isHandset$ | async)!}">
-      <a routerLink="home"><mat-icon>home</mat-icon>Home</a>
+      <a *ngIf = "service.loggedIn" routerLink="home"><mat-icon>home</mat-icon>Home</a>
       <a routerLink="aboutus">About Us</a>
       <a routerLink="login" *ngIf = "!service.loggedIn else logOut">Login</a>
       <ng-template #logOut>
         <a routerLink = "logout">Logout</a>
       </ng-template>
-      <a routerLink="myaccount"><mat-icon>settings</mat-icon>My Account</a>
-      <a routerLink="register">Sign Up!</a>
+      <a *ngIf = "service.loggedIn" routerLink="myaccount"><mat-icon>settings</mat-icon>My Account</a>
+      <a *ngIf = "!service.loggedIn" routerLink="register">Sign Up!</a>
     </div>
     </mat-toolbar>
     <ng-content></ng-content>

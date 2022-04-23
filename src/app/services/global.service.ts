@@ -8,7 +8,7 @@ export class GlobalService {
 
   _http:HttpClient;
   loggedIn:boolean;
-
+  connectionString: string = "https://localhost:44356/api/"
   constructor(private _httpRef:HttpClient) {
     this._http = _httpRef;
     this.loggedIn = false;
@@ -21,6 +21,7 @@ export class GlobalService {
   }
 
    Customer: any  = {
+      id: 0,
       firstName: "",
       lastName: "",
       email: "",
@@ -31,25 +32,24 @@ export class GlobalService {
       balance: 0};
 
    cruiseTickets = [];
-   cruiseTicket = {id: 0, custId: 0, shipId: 0, rooms: 0,childGuests: 0,adultGuests: 0,totalCost: 0}
+   cruiseTicket = {id: 0, custId: 0, shipId: 0, rooms: 0,childGuests: 0,adultGuests: 0,
+    totalCost: 0}
    cruises = [];
    itineraries = [];
-   register(firstName:string,lastName:string,email:string,password:string,streetAddress:string,state:string,zipCode:number,balance:number) {
-     this.Customer.firstName = firstName;
-     this.Customer.lastName = lastName;
-     this.Customer.email = email;
-     this.Customer.password = password;
-     this.Customer.streetAddress = streetAddress;
-     this.Customer.state = state;
-     this.Customer.zipCode = zipCode;
-     this.Customer.balance = balance;
+   register(firstName:string,lastName:string,email:string,password:string,
+    streetAddress:string, city:string,state:string,zipCode:number,
+    balance:number) {
 
+
+     this.Customer = {Id: 0,firstName:firstName,lastName:lastName,email:email,password:password,
+      streetAddress:streetAddress,city:city,state:state,zipCode:zipCode,balance:balance}
+      return this._http.post(this.connectionString + "Customer/Register",this.Customer);
      //http request to post via api
      //If it exists change the DOM to reflect it.
    }
 
    login(email?:string,password?:string) {
-     return this._http.get('https://localhost:44356/api/Customer/' + email + "/" + password);
+     return this._http.get(this.connectionString + 'Customer/' + email + "/" + password);
    }
 
 

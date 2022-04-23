@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -119,25 +119,22 @@ namespace ExcelsiorAPI.Models.EF
 
                 entity.Property(e => e.VoyageId).HasColumnName("voyageId");
 
-                entity.HasOne(d => d.Cust)
-                    .WithMany(p => p.CruiseTickets)
-                    .HasForeignKey(d => d.CustId)
-                    .HasConstraintName("FK__cruiseTic__custI__1A9EF37A");
-
                 entity.HasOne(d => d.Ship)
                     .WithMany(p => p.CruiseTickets)
                     .HasForeignKey(d => d.ShipId)
-                    .HasConstraintName("FK__cruiseTic__shipI__1B9317B3");
+                    .HasConstraintName("FK__cruiseTic__shipI__24285DB4");
 
                 entity.HasOne(d => d.Voyage)
                     .WithMany(p => p.CruiseTickets)
                     .HasForeignKey(d => d.VoyageId)
-                    .HasConstraintName("FK__cruiseTic__voyag__19AACF41");
+                    .HasConstraintName("FK__cruiseTic__voyag__22401542");
             });
 
             modelBuilder.Entity<Customer>(entity =>
             {
                 entity.ToTable("Customer");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.Balance)
                     .HasColumnType("money")
