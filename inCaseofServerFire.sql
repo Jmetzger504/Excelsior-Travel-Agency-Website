@@ -34,7 +34,7 @@ CREATE TABLE [Voyages] (
 );
 
 CREATE TABLE [Customer] (
-  [Id] int identity(1,1) primary key,
+  [Id] int primary key,
   [email] varchar(50),
   [password] varchar(50),
   [firstName] varchar(50),
@@ -70,7 +70,7 @@ CREATE TABLE [Itinerary] (
 );
 
 
-insert into Customer(email,password,firstName,lastName,streetAddress,city,state,zipCode,balance) values ('julian@gmail.com','myPassword','Julian','Metzger','My house','New Orleans','Louisiana',70005,50000)
+insert into Customer(Id,email,password,firstName,lastName,streetAddress,city,state,zipCode,balance) values (1,'julian@gmail.com','myPassword','Julian','Metzger','My house','New Orleans','Louisiana',70005,50000)
 
 insert into cruiseShip(availableRooms,totalRooms,portCity,portState,shipName,cruiseLine,destination,adultPrice,childPrice,roomPrice,tripLength,img1,img2,img3,img4) values (998,1000,'New Orleans','Louisiana, United States','Glory','Carnival','Caribbean',250,100,400,8,'src\assets\images\carnivalGlory1.jpg','src\assets\images\carnivalGlory2.jpg','src\assets\images\carnivalGlory3.jpg','src\assets\images\carnivalGlory4.jpg')
 

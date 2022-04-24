@@ -27,7 +27,7 @@ export class GlobalService {
  cruises = [];
  itineraries = [];
 
-  connectionString: string = "https://localhost:44356/api/"
+  connectionString: string = "https://localhost:7004/api/"
   constructor(private _httpRef:HttpClient) {
     this._http = _httpRef;
     this.loggedIn = false;
@@ -49,13 +49,11 @@ export class GlobalService {
 
      this.Customer = {Id: 0,firstName:firstName,lastName:lastName,email:email,password:password,
       streetAddress:streetAddress,city:city,state:state,zipCode:zipCode,balance:balance}
-      return this._http.post(this.connectionString + "Customer/Register",this.Customer);
-     //http request to post via api
-     //If it exists change the DOM to reflect it.
+      return this._http.post(this.connectionString + "CustomerDetails/Register",this.Customer);
    }
 
    login(email?:string,password?:string) {
-     return this._http.get(this.connectionString + 'Customer/' + email + "/" + password);
+     return this._http.get(this.connectionString + 'CustomerDetails/' + email + "/" + password);
    }
 
   getLocations() {

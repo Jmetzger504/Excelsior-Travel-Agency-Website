@@ -7,8 +7,9 @@ namespace ExcelsiorAPI.Models.EF
     {
         public CruiseShip()
         {
-            CruiseTickets = new HashSet<CruiseTicket>();
-            Voyages = new HashSet<Voyage>();
+            CruiseTickets = new List<CruiseTicket>();
+            Voyages = new List<Voyage>();
+            Itineraries = new List<Itinerary>();
         }
 
         public int Id { get; set; }
@@ -28,7 +29,8 @@ namespace ExcelsiorAPI.Models.EF
         public string? Img3 { get; set; }
         public string? Img4 { get; set; }
 
-        public virtual ICollection<CruiseTicket> CruiseTickets { get; set; }
-        public virtual ICollection<Voyage> Voyages { get; set; }
-  }
+        public List<CruiseTicket> CruiseTickets { get; set; }
+        public List<Voyage> Voyages { get; set; }
+        public List<Itinerary> Itineraries {get; set;}
+    }
 }
