@@ -1,7 +1,8 @@
 namespace newExcelsiorAPI.Models
 {
   public class CruiseTicket
-  {
+  { 
+
     public int Id { get; set; }
     public int? VoyageId { get; set; }
     public int? CustId { get; set; }
@@ -10,5 +11,9 @@ namespace newExcelsiorAPI.Models
     public int? ChildGuests { get; set; }
     public int? AdultGuests { get; set; }
     public decimal? TotalCost { get; set; }
+
+    public CruiseShip CruiseShip { get; set; }
+
+    public Voyage Voyage { get; set; }
   }
 }

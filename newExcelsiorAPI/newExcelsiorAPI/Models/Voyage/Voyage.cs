@@ -8,5 +8,7 @@ namespace newExcelsiorAPI.Models
     public DateTime? Arrival { get; set; }
     public int? RoomsAvailable {get;set;}
     public int? TotalRooms {get; set; }
+    public string? Destination { get; set; }
+    public CruiseShip? CruiseShip { get; set; }
   }
 }

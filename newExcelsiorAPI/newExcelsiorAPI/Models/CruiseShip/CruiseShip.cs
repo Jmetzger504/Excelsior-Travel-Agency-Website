@@ -7,7 +7,6 @@ namespace newExcelsiorAPI.Models
   {
     public CruiseShip()
     {
-      Voyages = new List<Voyage>();
       Itineraries = new List<Itinerary>();
     }
 
@@ -26,7 +25,7 @@ namespace newExcelsiorAPI.Models
     public string? Img3 { get; set; }
     public string? Img4 { get; set; }
 
-    public List<Voyage> Voyages { get; set; }
+    
     public List<Itinerary> Itineraries { get; set; }
   }
 }

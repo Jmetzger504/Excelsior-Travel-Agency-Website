@@ -30,6 +30,8 @@ namespace newExcelsiorAPI.Controllers
       catch (Exception ex) { throw new Exception(ex.Message); }
       finally { con.Close(); }
     }
+
+    
     
   }
 }

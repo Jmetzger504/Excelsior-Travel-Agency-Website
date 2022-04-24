@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ExcelsiorAPI.Models.EF
@@ -11,6 +11,5 @@ namespace ExcelsiorAPI.Models.EF
         public string? StateCountry { get; set; }
         public string? PortTime { get; set; }
 
-        public virtual CruiseShip? Ship { get; set; }
     }
 }

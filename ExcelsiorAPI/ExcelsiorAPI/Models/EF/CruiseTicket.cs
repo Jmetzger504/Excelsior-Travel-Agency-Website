@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ExcelsiorAPI.Models.EF
@@ -14,8 +14,8 @@ namespace ExcelsiorAPI.Models.EF
         public int? AdultGuests { get; set; }
         public decimal? TotalCost { get; set; }
 
-        public virtual Customer? Cust { get; set; }
-        public virtual CruiseShip? Ship { get; set; }
-        public virtual Voyage? Voyage { get; set; }
+        public Customer? Cust { get; set; }
+        public CruiseShip? Ship { get; set; }
+        public Voyage? Voyage { get; set; }
     }
 }

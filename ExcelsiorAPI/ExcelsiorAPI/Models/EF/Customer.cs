@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ExcelsiorAPI.Models.EF
@@ -7,7 +7,7 @@ namespace ExcelsiorAPI.Models.EF
     {
         public Customer()
         {
-            CruiseTickets = new HashSet<CruiseTicket>();
+            CruiseTickets = new List<CruiseTicket>();
         }
 
         public int Id { get; set; }
@@ -21,6 +21,6 @@ namespace ExcelsiorAPI.Models.EF
         public int? ZipCode { get; set; }
         public decimal? Balance { get; set; }
 
-        public virtual ICollection<CruiseTicket> CruiseTickets { get; set; }
+        public List<CruiseTicket> CruiseTickets { get; set; }
     }
 }
