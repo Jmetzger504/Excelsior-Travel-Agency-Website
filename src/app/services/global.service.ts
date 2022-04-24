@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,7 +9,7 @@ export class GlobalService {
   _http:HttpClient;
   loggedIn:boolean;
   destinations = [];
-
+  Voyages: any[] = [];
   Customer: any  = {
     id: 0,
     firstName: "",
@@ -21,11 +21,11 @@ export class GlobalService {
     zipCode: 0,
     balance: 0};
 
- cruiseTickets = [];
- cruiseTicket = {id: 0, custId: 0, shipId: 0, rooms: 0,childGuests: 0,adultGuests: 0,
-  totalCost: 0}
- cruises = [];
- itineraries = [];
+  
+  cruiseTickets = [];
+  cruiseTicket = {id: 0, custId: 0, shipId: 0, rooms: 0,childGuests: 0,adultGuests: 0,
+    totalCost: 0}
+
 
   connectionString: string = "https://localhost:7004/api/"
   constructor(private _httpRef:HttpClient) {
@@ -62,6 +62,10 @@ export class GlobalService {
 
   searchByLocation(location:string) {
     return this._http.get(this.connectionString + 'CruiseShip/SearchByLocation' + location);
+  }
+
+  getVoyages() : Observable<any> {
+    return this._http.get(this.connectionString + 'Voyages/getVoyages');
   }
 
 }

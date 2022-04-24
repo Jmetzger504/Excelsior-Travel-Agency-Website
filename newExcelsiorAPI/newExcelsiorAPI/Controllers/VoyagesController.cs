@@ -63,9 +63,30 @@ namespace newExcelsiorAPI.Controllers
           voyage.CruiseShip.Img1 = reader[9].ToString();
           voyage.CruiseShip.Img2 = reader[10].ToString();
           voyage.CruiseShip.Img3 = reader[11].ToString();
-          voyage.CruiseShip.Img3 = reader[12].ToString();
+          voyage.CruiseShip.Img4 = reader[12].ToString();
         }
         catch(Exception ex) { throw new Exception(ex.Message); }
+        finally { con.Close(); }
+
+        SqlCommand getShipItinerary = new SqlCommand("select * from Itinerary where shipId = @shipId", con);
+        getShipItinerary.Parameters.AddWithValue("@shipId", voyage.CruiseShip.Id);
+
+        try
+        {
+          con.Open();
+          reader = getShipItinerary.ExecuteReader();
+          while(reader.Read())
+          {
+            Itinerary Itinerary = new Itinerary();
+            Itinerary.ShipId = Convert.ToInt32(reader[0]);
+            Itinerary.Day = Convert.ToInt32(reader[1]);
+            Itinerary.City = reader[2].ToString();
+            Itinerary.StateCountry = reader[3].ToString();
+            Itinerary.PortTime = reader[4].ToString();
+            voyage.CruiseShip.Itineraries.Add(Itinerary);
+          }
+        }
+        catch (Exception ex) { throw new Exception(ex.Message); }
         finally { con.Close(); }
       }
       return Ok(Voyages);

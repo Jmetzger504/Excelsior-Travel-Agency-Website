@@ -15,7 +15,6 @@ namespace newExcelsiorAPI.Models
     public string? PortState { get; set; }
     public string? ShipName { get; set; }
     public string? CruiseLine { get; set; }
-    public string? Destination { get; set; }
     public decimal? AdultPrice { get; set; }
     public decimal? ChildPrice { get; set; }
     public decimal? RoomPrice { get; set; }
