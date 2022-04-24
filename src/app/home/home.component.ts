@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../services/global.service';
 import {Validators,FormGroup,FormBuilder} from '@angular/forms';
+import { MatCard } from '@angular/material/card';
 import { Voyage } from '../models/voyage.model';
 
 @Component({
@@ -9,12 +10,12 @@ import { Voyage } from '../models/voyage.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  
+  
   service:GlobalService;
   locationForm:FormGroup;
   dateForm:FormGroup;
   locations: any;
-  Voyages: Voyage[] =[];
   
   constructor(serviceRef: GlobalService,private fb: FormBuilder) {
     this.service = serviceRef;
@@ -26,11 +27,12 @@ export class HomeComponent implements OnInit {
      });
      this.dateForm = this.fb.group({
        formDates: ['',Validators.required]
-     })
+     });
    this.service.getVoyages().subscribe(data => {
-     this.service.Voyages = data;
-     console.log(this.service.Voyages);
-   });
+      this.service.Voyages = data;
+      console.log(this.service.Voyages);
+      console.log(this.service.Voyages[0].cruiseShip);
+    });
    }
 
 
@@ -43,6 +45,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
   }
 
 }

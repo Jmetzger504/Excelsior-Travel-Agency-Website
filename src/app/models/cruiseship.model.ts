@@ -15,5 +15,5 @@ export class CruiseShip {
     img2: string = "";
     img3: string = "";
     img4: string = "";
-    Itineraries: Itinerary[] = [];
+    itineraries: Itinerary[] = [];
 }

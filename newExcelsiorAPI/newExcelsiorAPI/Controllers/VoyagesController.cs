@@ -16,7 +16,7 @@ namespace newExcelsiorAPI.Controllers
     {
       List<Voyage> Voyages = new List<Voyage>();
       SqlDataReader reader;
-      SqlCommand getVoyages = new SqlCommand("select * from Voyages",con);
+      SqlCommand getVoyages = new SqlCommand("select * from Voyages order by departure asc",con);
 
       try
       {

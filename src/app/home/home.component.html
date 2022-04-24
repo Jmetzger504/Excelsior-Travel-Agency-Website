@@ -42,5 +42,49 @@
       </mat-form-field>
       <button [disabled] = "dateForm.invalid" mat-raised-button color = "primary">Search</button>
 </form>
+<br>
+<h2>All currently scheduled cruises:</h2>
 
-
+<div *ngFor = "let voyage of this.service.Voyages">
+  <mat-card class="example-card">
+    <mat-card-title-group>
+      <mat-card-title>{{voyage.cruiseShip.tripLength}} night {{voyage.destination}} Cruise</mat-card-title>
+      <mat-card-subtitle>
+        <h3>{{voyage.cruiseShip.cruiseLine}} {{voyage.cruiseShip.shipName}}</h3>
+        <b>Sailing dates:</b> {{voyage.departure | date}} - {{voyage.arrival | date}}
+      </mat-card-subtitle>
+      <img mat-card-xl-image [src]="voyage.cruiseShip.img1">
+    </mat-card-title-group>
+    <mat-card-content>
+      <mat-accordion>
+        <mat-expansion-panel hideToggle >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Departing {{voyage.cruiseShip.portCity}}
+            </mat-panel-title>
+            <mat-panel-description>
+              See itinerary
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <hr>
+          <mat-list role="list" *ngFor = "let itinerary of voyage.cruiseShip.itineraries">
+            <mat-list-item role="listitem"><h3>Day {{itinerary.day}}</h3></mat-list-item>
+            <mat-list-item role="listitem"><h2>{{itinerary.city}}</h2></mat-list-item>
+            <mat-list-item role="listitem" *ngIf = "itinerary.stateCountry"><h3>{{itinerary.stateCountry}}</h3></mat-list-item>
+            <mat-list-item role="listitem" *ngIf = "itinerary.portTime"><h3>{{itinerary.portTime}}</h3></mat-list-item>
+            <hr>
+          </mat-list>
+          <!-- <div *ngFor = "let itinerary of voyage.cruiseShip.Itineraries">
+            <h4>Day {{itinerary.day}}</h4>
+            <h3>{{itinerary.city}}</h3>
+            <h4>{{itinerary.stateCountry}}</h4>
+            <h4>{{itinerary.portTime}}</h4>
+          </div> -->
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+  </mat-card>
+  <!-- <img style = "height: 200px;" [src] = "voyage.cruiseShip.img1">
+  <h3><b>{{voyage.cruiseShip.tripLength}} night {{voyage.destination}} Cruise</b></h3>
+  <h3><b>Sailing dates: </b>{{voyage.departure | date}} - {{voyage.arrival | date}}</h3> -->
+</div>
