@@ -93,11 +93,6 @@ namespace newExcelsiorAPI.Controllers
       return Ok(Voyages);
     }
 
-    //[HttpGet]
-    //[Route("searchByLocation")]
-    //public IActionResult SearchByLocation(string location)
-    //{
-      
-    //}
+    
   }
 }

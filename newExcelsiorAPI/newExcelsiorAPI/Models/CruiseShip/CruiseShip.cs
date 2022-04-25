@@ -10,7 +10,7 @@ namespace newExcelsiorAPI.Models
       Itineraries = new List<Itinerary>();
     }
 
-    public int Id { get; set; }
+    public int? Id { get; set; }
     public string? PortCity { get; set; }
     public string? PortState { get; set; }
     public string? ShipName { get; set; }

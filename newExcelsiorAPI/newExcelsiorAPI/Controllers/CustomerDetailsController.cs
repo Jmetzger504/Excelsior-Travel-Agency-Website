@@ -9,7 +9,7 @@ namespace newExcelsiorAPI.Controllers
   [ApiController]
   public class CustomerDetailsController : ControllerBase
   {
-    
+    SqlConnection con = new SqlConnection("server=p2project.database.windows.net ;database=excelsiorDb; User Id = project2; Password=Password@4567");
 
     [HttpGet]
     [Route("{email}/{password}")]
@@ -62,8 +62,8 @@ namespace newExcelsiorAPI.Controllers
     public IActionResult purchase(CruiseTicket ticket)
     {
 
-      SqlConnection con = new SqlConnection("server=p2project.database.windows.net ;database=excelsiorDb; User Id = project2; Password=Password@4567");
-      SqlCommand purchaseTicket = new SqlCommand("insert into cruiseTicket (voyageId,custID,shipID,Rooms,childGuests,adultGuests,totalCost) values (@voyageId,@custID,@shipID,@Rooms,@childGuests,@adultGuests,@totalCost)", con);
+      
+      SqlCommand purchaseTicket = new SqlCommand("insert into cruiseTicket (voyageId,custID,shipID,Rooms,childGuests,adultGuests,totalCost) values (@voyageId,@custID,@shipID,@Rooms,@childGuests,@adultGuests,@totalCost)",con);
       purchaseTicket.Parameters.AddWithValue("@voyageId",ticket.VoyageId);
       purchaseTicket.Parameters.AddWithValue("@custID",ticket.CustId);
       purchaseTicket.Parameters.AddWithValue("@shipID",ticket.ShipId);

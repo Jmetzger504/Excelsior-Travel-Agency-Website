@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from '../services/global.service';
 
 @Component({
   selector: 'app-myaccount',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyaccountComponent implements OnInit {
 
-  constructor() { }
+  service:GlobalService
+
+  constructor(serviceRef:GlobalService) {
+    this.service = serviceRef;
+   }
 
   ngOnInit(): void {
   }
