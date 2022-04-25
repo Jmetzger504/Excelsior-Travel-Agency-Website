@@ -1,1 +1,42 @@
-<p>myaccount works!</p>
+<h1>My Cruises</h1>
+
+<h2>{{message}}</h2>
+
+<div *ngFor = "let ticket of this.service.cruiseTickets">
+    <mat-card class="example-card">
+        <mat-card-title-group>
+          <mat-card-title>{{ticket.myVoyage.cruiseShip.tripLength}} night {{ticket.myVoyage.destination}} Cruise</mat-card-title>
+          <mat-card-subtitle>
+            <h3>{{ticket.myVoyage.cruiseShip.cruiseLine}} {{ticket.myVoyage.cruiseShip.shipName}}</h3>
+            <b>Sailing dates:</b> {{ticket.myVoyage.departure | date}} - {{ticket.myVoyage.arrival | date}}
+            <p *ngIf = "ticket.childGuests != 0">{{ticket.childGuests}} child travelers from {{ticket.myVoyage.cruiseShip.childPrice | currency}} per traveler</p>
+            <p>{{ticket.adultGuests }} adult travelers from {{ticket.myVoyage.cruiseShip.adultPrice | currency}} per traveler</p>
+            <p>Room(s) booked: {{ticket.rooms}}</p>
+            <p><b>Total cost:</b> {{ticket.totalCost | currency}}</p>
+          </mat-card-subtitle>
+          <img mat-card-xl-image [src]="ticket.myVoyage.cruiseShip.img1">
+        </mat-card-title-group>
+        <mat-card-content>
+          <mat-accordion>
+            <mat-expansion-panel hideToggle >
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Departing {{ticket.myVoyage.cruiseShip.portCity}}
+                </mat-panel-title>
+                <mat-panel-description>
+                  See itinerary
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <hr>
+              <mat-list role="list" *ngFor = "let itinerary of ticket.myVoyage.cruiseShip.itineraries">
+                <mat-list-item role="listitem"><h3>Day {{itinerary.day}}</h3></mat-list-item>
+                <mat-list-item role="listitem"><h2>{{itinerary.city}}</h2></mat-list-item>
+                <mat-list-item role="listitem" *ngIf = "itinerary.stateCountry"><h3>{{itinerary.stateCountry}}</h3></mat-list-item>
+                <mat-list-item role="listitem" *ngIf = "itinerary.portTime"><h3>{{itinerary.portTime}}</h3></mat-list-item>
+                <hr>
+              </mat-list>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </mat-card-content>
+      </mat-card>
+</div>

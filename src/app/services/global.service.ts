@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CruiseTicket } from '../models/cruiseticket.model';
 import { Voyage } from '../models/voyage.model';
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class GlobalService {
   destinations = [];
   Voyages: Voyage[] = [];
   Voyage:Voyage = new Voyage();
+
   Customer: any  = {
     id: 0,
     firstName: "",
@@ -24,11 +26,11 @@ export class GlobalService {
     zipCode: 0,
     balance: 0};
 
+  myVoyages: Voyage[] = [];
   
-  cruiseTickets = [];
+  cruiseTickets: CruiseTicket[] = [];
   cruiseTicket = {id: 0, voyageId: 0, custId: 0, shipId: 0, rooms: 0,childGuests: 0,adultGuests: 0,
     totalCost: 0}
-
 
   connectionString: string = "https://localhost:7004/api/"
   constructor(private _httpRef:HttpClient) {
@@ -42,9 +44,6 @@ export class GlobalService {
     return false;
   }
 
-  
-
-   
    register(firstName:string,lastName:string,email:string,password:string,
     streetAddress:string, city:string,state:string,zipCode:number,
     balance:number) {
@@ -69,6 +68,10 @@ export class GlobalService {
 
   getVoyages() : Observable<any> {
     return this._http.get(this.connectionString + 'Voyages/getVoyages');
+  }
+
+  getMyTickets() : Observable<any> {
+    return this._http.get(this.connectionString + "CruiseTicket/getMyTickets" + this.Customer.id);
   }
 
   purchaseTicket() {

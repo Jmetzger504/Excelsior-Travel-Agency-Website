@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../services/global.service';
 import {Validators,FormGroup,FormBuilder} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Voyage } from '../models/voyage.model';
+import { MatDialog } from '@angular/material/dialog';
+import { CruiseconfirmationComponent } from '../cruiseconfirmation/cruiseconfirmation.component';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit {
   travelerForm:FormGroup;
   locations: any;
   confirmation: string = "";
-  constructor(serviceRef: GlobalService,private fb: FormBuilder, private snackBar: MatSnackBar) {
+  constructor(serviceRef: GlobalService,private fb: FormBuilder, private snackBar: MatSnackBar, public dialog: MatDialog) {
     this.service = serviceRef;
     this.service.cruiseTicket.adultGuests = 2;
     this.service.cruiseTicket.childGuests = 0;
@@ -45,6 +46,9 @@ export class HomeComponent implements OnInit {
     });
    }
 
+   openDialog() {
+    this.dialog.open(CruiseconfirmationComponent);
+  }
 
   get formLocations() {
     return this.locationForm.get('formLocations');
@@ -75,7 +79,9 @@ export class HomeComponent implements OnInit {
     this.service.purchaseTicket().subscribe(data => {
       if(data == null)
       console.log("dang :(");
+      this.openDialog();
     });
+    
   }
 
   ngOnInit(): void {

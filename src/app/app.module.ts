@@ -24,7 +24,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatCommonModule, MatOptionModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatFormFieldModule, MatLabel} from '@angular/material/form-field';
@@ -55,6 +55,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GlobalService } from './services/global.service';
 import { LogoutComponent } from './logout/logout.component';
+import { CruiseconfirmationComponent } from './cruiseconfirmation/cruiseconfirmation.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { LogoutComponent } from './logout/logout.component';
     AboutusComponent,
     NotfoundComponent,
     MainNavComponent,
-    LogoutComponent
+    LogoutComponent,
+    CruiseconfirmationComponent
   ],
   imports: [
     BrowserModule,
@@ -77,6 +79,7 @@ import { LogoutComponent } from './logout/logout.component';
     MatButtonModule,
     MatCardModule,
     MatDatepickerModule,
+    MatDialogModule,
     MatDividerModule,
     MatExpansionModule,
     MatFormFieldModule,

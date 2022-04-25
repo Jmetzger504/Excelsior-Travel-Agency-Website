@@ -12,7 +12,7 @@ namespace newExcelsiorAPI.Controllers
     SqlConnection con = new SqlConnection("server=p2project.database.windows.net ;database=excelsiorDb; User Id = project2; Password=Password@4567");
 
     [HttpGet]
-    [Route("getMyTickets")]
+    [Route("getMyTickets{custId}")]
     public IActionResult getMyTickets(int custId)
     {
       List<CruiseTicket> myTickets = new List<CruiseTicket>();
