@@ -87,6 +87,7 @@ import { LogoutComponent } from './logout/logout.component';
     MatNativeDateModule,
     MatOptionModule,
     MatSelectModule,
+    MatSnackBarModule,
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,

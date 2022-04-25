@@ -27,10 +27,11 @@ namespace newExcelsiorAPI.Models
 
     SqlConnection con = new SqlConnection("server=p2project.database.windows.net ;database=excelsiorDb; User Id = project2; Password=Password@4567");
 
-    public bool attemptLogin(string email)
+    public bool attemptLogin(string email,string password)
     {
-      SqlCommand check = new SqlCommand("select Count(email) from Customer where email = @email",con);
+      SqlCommand check = new SqlCommand("select Count(email) from Customer where email = @email and password = @password",con);
       check.Parameters.AddWithValue("@email", email);
+      check.Parameters.AddWithValue("@password", password);
       SqlDataReader reader;
       int count;
       bool authenticate = true;

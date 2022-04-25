@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GlobalService } from '../services/global.service';
 
 @Component({
@@ -9,16 +10,17 @@ import { GlobalService } from '../services/global.service';
 export class LogoutComponent implements OnInit {
 
   service:GlobalService;
-
-  constructor(serviceRef:GlobalService) {
-    console.log("constructor");
+  router:Router;
+  constructor(serviceRef:GlobalService,private routerRef:Router) {
+    
     this.service = serviceRef;
     this.service.loggedIn = false;
     this.service.Customer = null;
+    this.router = routerRef;
+    this.router.navigateByUrl("/login");
    }
 
   ngOnInit(): void {
-    console.log("onInit");
   }
 
 }

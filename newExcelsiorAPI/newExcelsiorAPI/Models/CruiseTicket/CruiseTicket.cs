@@ -11,9 +11,5 @@ namespace newExcelsiorAPI.Models
     public int? ChildGuests { get; set; }
     public int? AdultGuests { get; set; }
     public decimal? TotalCost { get; set; }
-
-    public CruiseShip CruiseShip { get; set; }
-
-    public Voyage Voyage { get; set; }
   }
 }

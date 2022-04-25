@@ -1,22 +1,20 @@
-<!-- <div *ngFor = "let cruise of cruises">
-    <h2>{{cruise.cruiseLine}} {{cruise.shipName}}</h2>
-    <h3>Departing: {{cruise.From}}</h3>
-    <h3>Visiting: {{cruise.To}}</h3>
-    <h3>{{cruise.cruiseLine}} {{cruise.shipName}}</h3>
-    <h3>Length: {{cruise.dayLength}} days</h3>
-    <h3>Price per adult traveler: {{cruise.pricePerAdult | currency}}</h3>
-    <h3>Price per child traveler: {{cruise.pricePerChild | currency}}</h3>
-    <h3>Itinerary</h3>
-    <div *ngFor = "let dest of cruise.itinerary">
-        <h4>Day {{dest.day}}</h4>
-        <h4>{{dest.city}}</h4>
-        <h4 *ngIf = "dest.country !=''">{{dest.country}}</h4>
-        <h4 *ngIf = "dest.portTime != ''">{{dest.portTime}}</h4>
-    </div>
-</div> -->
-
-<h1>Cruises!</h1>
-<h3>Search Cruises by Location</h3>
+<h1>Cruises</h1>
+<form [formGroup] = "travelerForm" class = "travelerForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Number of adults</mat-label>
+    <input min = 1 matInput type = "number" formControlName = "formAdults">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Number of children</mat-label>
+    <input min = 0 matInput type="number" formControlName = "formChildren">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+  <mat-label>Number of Rooms</mat-label>
+  <input min = 1 max = 4 matInput type="number" formControlName = "formRooms">
+</mat-form-field>
+  <button (click) = "assembleTravelers()" mat-raised-button color = "primary">Assemble your travelers!</button>
+</form>
+<!-- <h3>Search Cruises by Location</h3>
 <form [formGroup] = "locationForm">
     <mat-form-field appearance="fill">
         <mat-label>Where are you headed?</mat-label>
@@ -41,17 +39,21 @@
         <mat-date-range-picker #picker></mat-date-range-picker>
       </mat-form-field>
       <button [disabled] = "dateForm.invalid" mat-raised-button color = "primary">Search</button>
-</form>
+</form> -->
 <br>
 <h2>All currently scheduled cruises:</h2>
 
-<div *ngFor = "let voyage of this.service.Voyages">
+<div *ngFor = "let voyage of this.service.Voyages;let i = index">
   <mat-card class="example-card">
     <mat-card-title-group>
       <mat-card-title>{{voyage.cruiseShip.tripLength}} night {{voyage.destination}} Cruise</mat-card-title>
       <mat-card-subtitle>
         <h3>{{voyage.cruiseShip.cruiseLine}} {{voyage.cruiseShip.shipName}}</h3>
         <b>Sailing dates:</b> {{voyage.departure | date}} - {{voyage.arrival | date}}
+        <p>from {{voyage.cruiseShip.childPrice | currency}} per child traveler*</p>
+        <p>from {{voyage.cruiseShip.adultPrice | currency}} per adult traveler*</p>
+        <p>from {{voyage.cruiseShip.roomPrice | currency}} per room*</p>
+        <button (click) = "chooseCruise(i)" mat-raised-button color = "primary">Book your voyage</button>
       </mat-card-subtitle>
       <img mat-card-xl-image [src]="voyage.cruiseShip.img1">
     </mat-card-title-group>
@@ -74,12 +76,6 @@
             <mat-list-item role="listitem" *ngIf = "itinerary.portTime"><h3>{{itinerary.portTime}}</h3></mat-list-item>
             <hr>
           </mat-list>
-          <!-- <div *ngFor = "let itinerary of voyage.cruiseShip.Itineraries">
-            <h4>Day {{itinerary.day}}</h4>
-            <h3>{{itinerary.city}}</h3>
-            <h4>{{itinerary.stateCountry}}</h4>
-            <h4>{{itinerary.portTime}}</h4>
-          </div> -->
         </mat-expansion-panel>
       </mat-accordion>
     </mat-card-content>

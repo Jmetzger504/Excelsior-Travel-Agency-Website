@@ -16,7 +16,8 @@ namespace newExcelsiorAPI.Controllers
     {
       List<Voyage> Voyages = new List<Voyage>();
       SqlDataReader reader;
-      SqlCommand getVoyages = new SqlCommand("select * from Voyages order by departure asc",con);
+      SqlCommand getVoyages = new SqlCommand("select * from Voyages where departure > @now order by departure asc",con);
+      getVoyages.Parameters.AddWithValue("@now",DateTime.Now);
 
       try
       {

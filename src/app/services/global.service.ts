@@ -9,8 +9,10 @@ export class GlobalService {
 
   _http:HttpClient;
   loggedIn:boolean;
+  rooms:number = 0;
   destinations = [];
   Voyages: Voyage[] = [];
+  Voyage:Voyage = new Voyage();
   Customer: any  = {
     id: 0,
     firstName: "",
@@ -24,7 +26,7 @@ export class GlobalService {
 
   
   cruiseTickets = [];
-  cruiseTicket = {id: 0, custId: 0, shipId: 0, rooms: 0,childGuests: 0,adultGuests: 0,
+  cruiseTicket = {id: 0, voyageId: 0, custId: 0, shipId: 0, rooms: 0,childGuests: 0,adultGuests: 0,
     totalCost: 0}
 
 
@@ -67,6 +69,10 @@ export class GlobalService {
 
   getVoyages() : Observable<any> {
     return this._http.get(this.connectionString + 'Voyages/getVoyages');
+  }
+
+  purchaseTicket() {
+    return this._http.post(this.connectionString + "CustomerDetails/purchaseTicket",this.cruiseTicket);
   }
 
 }
