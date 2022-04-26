@@ -8,14 +8,19 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { RegisterComponent } from './register/register.component';
 import { GlobalService } from './services/global.service';
 import { LogoutComponent } from './logout/logout.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
+
 const routes: Routes = [
-  {path:'logout',component:LogoutComponent},
+  {path:'logout',component:LogoutComponent,canActivate:[GlobalService]},
   {path: 'login',component: LoginComponent},
-  {path: 'myaccount',component: MyaccountComponent,canActivate:[GlobalService]},
+  {path: 'myaccount',component: MyaccountComponent},
   {path: 'register',component: RegisterComponent},
-  {path: 'home',component: HomeComponent, canActivate: [GlobalService]},
+  {path: 'home',component: HomeComponent},
   {path: '', component: LoginComponent},
   {path: 'aboutus',component: AboutusComponent},
+  {path: 'contactus',component: ContactusComponent},
+  {path: 'main-nav',component: MainNavComponent},   
   {path: '**', component: NotfoundComponent}
 ];
 

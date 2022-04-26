@@ -1,4 +1,8 @@
-<h1>Cruises</h1>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<div style="margin:auto;padding:10; width:50em;" >
+<br>
+<button class="w3-round-xxxlarge" mat-raised-button style="background-color:#c5fc78">Cruises</button>
 <form [formGroup] = "travelerForm" class = "travelerForm">
   <mat-form-field appearance="fill">
     <mat-label>Number of adults</mat-label>
@@ -14,6 +18,7 @@
 </mat-form-field>
   <button (click) = "assembleTravelers()" mat-raised-button color = "primary">Assemble your travelers!</button>
 </form>
+</div>
 <!-- <h3>Search Cruises by Location</h3>
 <form [formGroup] = "locationForm">
     <mat-form-field appearance="fill">
@@ -41,18 +46,21 @@
       <button [disabled] = "dateForm.invalid" mat-raised-button color = "primary">Search</button>
 </form> -->
 <br>
-<h2>All currently scheduled cruises:</h2>
 
-<div *ngFor = "let voyage of this.service.Voyages;let i = index">
+<div class="w3-panel w3-round-large w3-grey" style="margin:auto; width:50%; background-color:#d4f1f9">
+  <h2 class="w3-panel w3-round-large" style="text-align:center">All currently scheduled cruises:</h2>
+</div>
+<div>
+<div style="margin:auto; background-color:#d4f1f9" *ngFor = "let voyage of this.service.Voyages;let i = index">
   <mat-card class="example-card">
     <mat-card-title-group>
-      <mat-card-title>{{voyage.cruiseShip.tripLength}} night {{voyage.destination}} Cruise</mat-card-title>
+      <mat-card-title style="color:#518901">{{voyage.cruiseShip.tripLength}} night {{voyage.destination}} Cruise</mat-card-title>
       <mat-card-subtitle>
         <h3>{{voyage.cruiseShip.cruiseLine}} {{voyage.cruiseShip.shipName}}</h3>
-        <b>Sailing dates:</b> {{voyage.departure | date}} - {{voyage.arrival | date}}
-        <p>from {{voyage.cruiseShip.childPrice | currency}} per child traveler*</p>
-        <p>from {{voyage.cruiseShip.adultPrice | currency}} per adult traveler*</p>
-        <p>from {{voyage.cruiseShip.roomPrice | currency}} per room*</p>
+        <b class="b2">Sailing dates:</b> {{voyage.departure | date}} - {{voyage.arrival | date}}
+        <h5>from <b> {{voyage.cruiseShip.childPrice | currency}} </b> per child traveler*</h5>
+        <h5 class="adjust-line-height">from <b> {{voyage.cruiseShip.adultPrice | currency}} </b> per adult traveler*</h5>
+        <h5 class="adjust-line-height">from <b> {{voyage.cruiseShip.roomPrice | currency}} </b> per room*</h5>
         <button (click) = "chooseCruise(i)" mat-raised-button color = "primary">Book your voyage</button>
       </mat-card-subtitle>
       <img mat-card-xl-image [src]="voyage.cruiseShip.img1">
@@ -61,19 +69,19 @@
       <mat-accordion>
         <mat-expansion-panel hideToggle >
           <mat-expansion-panel-header>
-            <mat-panel-title>
+            <mat-panel-title style="color:orange">
               Departing {{voyage.cruiseShip.portCity}}
-            </mat-panel-title>
+            </mat-panel-title >
             <mat-panel-description>
-              See itinerary
+              <a style="color:orange"> See itinerary</a>
             </mat-panel-description>
           </mat-expansion-panel-header>
           <hr>
           <mat-list role="list" *ngFor = "let itinerary of voyage.cruiseShip.itineraries">
-            <mat-list-item role="listitem"><h3>Day {{itinerary.day}}</h3></mat-list-item>
+            <mat-list-item role="listitem"><h3 class="w3-panel w3-round-xxlarge w3-orange adjust-line-height" style="color:blue">Day {{itinerary.day}}</h3></mat-list-item>
             <mat-list-item role="listitem"><h2>{{itinerary.city}}</h2></mat-list-item>
             <mat-list-item role="listitem" *ngIf = "itinerary.stateCountry"><h3>{{itinerary.stateCountry}}</h3></mat-list-item>
-            <mat-list-item role="listitem" *ngIf = "itinerary.portTime"><h3>{{itinerary.portTime}}</h3></mat-list-item>
+            <mat-list-item role="listitem" *ngIf = "itinerary.portTime"><h3>Time: {{itinerary.portTime}}</h3></mat-list-item>
             <hr>
           </mat-list>
         </mat-expansion-panel>
@@ -83,4 +91,5 @@
   <!-- <img style = "height: 200px;" [src] = "voyage.cruiseShip.img1">
   <h3><b>{{voyage.cruiseShip.tripLength}} night {{voyage.destination}} Cruise</b></h3>
   <h3><b>Sailing dates: </b>{{voyage.departure | date}} - {{voyage.arrival | date}}</h3> -->
+</div>
 </div>

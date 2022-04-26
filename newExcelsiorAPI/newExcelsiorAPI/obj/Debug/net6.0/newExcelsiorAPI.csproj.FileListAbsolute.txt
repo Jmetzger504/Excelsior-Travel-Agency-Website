@@ -31,3 +31,36 @@ D:\repos\revatureProjects\Project2\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net
 D:\repos\revatureProjects\Project2\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\ref\newExcelsiorAPI.dll
 D:\repos\revatureProjects\Project2\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\newExcelsiorAPI.pdb
 D:\repos\revatureProjects\Project2\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\newExcelsiorAPI.genruntimeconfig.cache
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\newExcelsiorAPI.dll
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\newExcelsiorAPI.pdb
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\bin\Debug\net6.0\appsettings.json
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\bin\Debug\net6.0\newExcelsiorAPI.exe
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\bin\Debug\net6.0\newExcelsiorAPI.deps.json
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\bin\Debug\net6.0\newExcelsiorAPI.runtimeconfig.json
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\bin\Debug\net6.0\newExcelsiorAPI.dll
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\bin\Debug\net6.0\newExcelsiorAPI.pdb
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\newExcelsiorAPI.csproj.AssemblyReference.cache
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\newExcelsiorAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\newExcelsiorAPI.AssemblyInfoInputs.cache
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\newExcelsiorAPI.AssemblyInfo.cs
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\newExcelsiorAPI.csproj.CoreCompileInputs.cache
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\newExcelsiorAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\newExcelsiorAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\scopedcss\bundle\newExcelsiorAPI.styles.css
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\newExcelsiorAPI.csproj.CopyComplete
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\refint\newExcelsiorAPI.dll
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\newExcelsiorAPI.genruntimeconfig.cache
+C:\Users\Art Leyva\Desktop\project2\project2.042522\Excelsior-Travel-Agency-Website\newExcelsiorAPI\newExcelsiorAPI\obj\Debug\net6.0\ref\newExcelsiorAPI.dll

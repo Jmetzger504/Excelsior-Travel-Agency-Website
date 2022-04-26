@@ -56,6 +56,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { GlobalService } from './services/global.service';
 import { LogoutComponent } from './logout/logout.component';
 import { CruiseconfirmationComponent } from './cruiseconfirmation/cruiseconfirmation.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { CruiseconfirmationComponent } from './cruiseconfirmation/cruiseconfirma
     NotfoundComponent,
     MainNavComponent,
     LogoutComponent,
-    CruiseconfirmationComponent
+    CruiseconfirmationComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,
